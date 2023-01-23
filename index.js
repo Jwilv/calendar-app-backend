@@ -17,6 +17,7 @@ app.use(express.static('public'));
 // })
 
 //escuchar peticiones
-app.listen(4000,()=>{
-    console.log(`Servidor corriendo en el puerto ${4000}`)
+// se obtiene el proceso de env y apuntamos/obtenemos el puerto 
+app.listen(process.env.PORT,()=>{
+    console.log(`Servidor corriendo en el puerto ${process.env.PORT}`)
 });
