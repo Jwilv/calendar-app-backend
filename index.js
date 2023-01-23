@@ -4,13 +4,16 @@ const express = require('express')
 //crear el servidor de express
 const app = express();
 
+//directorio publico
+app.use(express.static('public'));
+
 //rutas
-app.get('/', (req, res)=>{
-    console.log('se requiere /')
-    res.json({
-        ok:true
-    })
-})
+// app.get('/', (req, res)=>{
+//     console.log('se requiere /')
+//     res.json({
+//         ok:true
+//     })
+// })
 
 //escuchar peticiones
 app.listen(4000,()=>{
