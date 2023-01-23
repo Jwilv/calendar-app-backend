@@ -1,3 +1,2 @@
-//archivo base
 
-console.log('hola mundo')
+const express = require('express')
