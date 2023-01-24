@@ -1,3 +1,8 @@
+/*
+rutas auth
+hots + /api/auth
+*/
+
 const {Router} = require('express');
 const router = Router();
 
