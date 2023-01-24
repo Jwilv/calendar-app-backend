@@ -23,4 +23,12 @@ router.post('/', (req, res) => {
     })
 })
 
+router.get('/renew', (req, res) => {
+    console.log('se requiere /')
+    res.json({
+        ok: true,
+        msg:'renew'
+    })
+})
+
 module.exports = router;
