@@ -9,12 +9,8 @@ const app = express();
 app.use(express.static('public'));
 
 //rutas
-// app.get('/', (req, res)=>{
-//     console.log('se requiere /')
-//     res.json({
-//         ok:true
-//     })
-// })
+//auth : crear, login, renew
+//CRUD:eventos
 
 //escuchar peticiones
 // se obtiene el proceso de env y apuntamos/obtenemos el puerto 
