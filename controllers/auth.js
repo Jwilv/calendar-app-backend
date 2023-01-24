@@ -8,6 +8,14 @@ const createUser = (req, res = response) => {
     })
 }
 
+const loginUser = (req, res) => {
+    res.json({
+        ok: true,
+        msg:'login'
+    })
+}
+
 module.exports = {
     createUser,
+    loginUser
 }
