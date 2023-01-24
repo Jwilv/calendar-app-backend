@@ -5,15 +5,10 @@ hots + /api/auth
 
 const {Router} = require('express');
 const router = Router();
+const {createUser} = require('../controllers/auth')
 
 
-router.post('/new', (req, res) => {
-    console.log('se requiere /')
-    res.json({
-        ok: true,
-        msg:'register'
-    })
-})
+router.post('/new', createUser )
 
 router.post('/', (req, res) => {
     console.log('se requiere /')
