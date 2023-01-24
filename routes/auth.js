@@ -11,11 +11,13 @@ const {
     renew
 } = require('../controllers/auth')
 
-
+//ruta creacion de user (register)
 router.post('/new', createUser)
 
+//ruta logeo de user (login)
 router.post('/', loginUser)
 
+//renoviacion de token de el user (renew)
 router.get('/renew', renew)
 
 module.exports = router;
