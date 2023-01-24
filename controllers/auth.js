@@ -15,7 +15,7 @@ const loginUser = (req, res = response) => {
     })
 }
 
-const renew = (req, res = response) => {
+const revalidateToken = (req, res = response) => {
     res.json({
         ok: true,
         msg: 'renew'
@@ -25,5 +25,5 @@ const renew = (req, res = response) => {
 module.exports = {
     createUser,
     loginUser,
-    renew,
+    revalidateToken,
 }

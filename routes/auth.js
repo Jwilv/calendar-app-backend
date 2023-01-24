@@ -8,7 +8,7 @@ const router = Router();
 const {
     createUser,
     loginUser,
-    renew
+    revalidateToken
 } = require('../controllers/auth')
 
 //ruta creacion de user (register)
@@ -18,6 +18,6 @@ router.post('/new', createUser)
 router.post('/', loginUser)
 
 //renoviacion de token de el user (renew)
-router.get('/renew', renew)
+router.get('/renew', revalidateToken)
 
 module.exports = router;
