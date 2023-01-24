@@ -3,7 +3,7 @@ rutas auth
 hots + /api/auth
 */
 
-const {Router} = require('express');
+const { Router } = require('express');
 const router = Router();
 const {
     createUser,
@@ -12,7 +12,7 @@ const {
 } = require('../controllers/auth')
 
 
-router.post('/new', createUser )
+router.post('/new', createUser)
 
 router.post('/', loginUser)
 

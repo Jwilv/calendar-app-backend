@@ -4,21 +4,21 @@ const { response } = require("express")
 const createUser = (req, res = response) => {
     res.json({
         ok: true,
-        msg:'register'
+        msg: 'register'
     })
 }
 
 const loginUser = (req, res = response) => {
     res.json({
         ok: true,
-        msg:'login'
+        msg: 'login'
     })
 }
 
 const renew = (req, res = response) => {
     res.json({
         ok: true,
-        msg:'renew'
+        msg: 'renew'
     })
 }
 
