@@ -15,4 +15,12 @@ router.post('/new', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+    console.log('se requiere /')
+    res.json({
+        ok: true,
+        msg:'login'
+    })
+})
+
 module.exports = router;
