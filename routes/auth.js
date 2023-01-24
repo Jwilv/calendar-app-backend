@@ -10,7 +10,8 @@ const router = Router();
 router.post('/new', (req, res) => {
     console.log('se requiere /')
     res.json({
-        ok: true
+        ok: true,
+        msg:'register'
     })
 })
 
