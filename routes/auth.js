@@ -11,7 +11,6 @@ const {createUser} = require('../controllers/auth')
 router.post('/new', createUser )
 
 router.post('/', (req, res) => {
-    console.log('se requiere /')
     res.json({
         ok: true,
         msg:'login'
@@ -19,7 +18,6 @@ router.post('/', (req, res) => {
 })
 
 router.get('/renew', (req, res) => {
-    console.log('se requiere /')
     res.json({
         ok: true,
         msg:'renew'
