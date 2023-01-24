@@ -10,6 +10,7 @@ app.use(express.static('public'));
 
 //rutas
 //auth : crear, login, renew
+app.use('/api/auth', require('./routes/auth'));
 //CRUD:eventos
 
 //escuchar peticiones
