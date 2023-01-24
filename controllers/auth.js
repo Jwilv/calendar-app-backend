@@ -8,14 +8,14 @@ const createUser = (req, res = response) => {
     })
 }
 
-const loginUser = (req, res) => {
+const loginUser = (req, res = response) => {
     res.json({
         ok: true,
         msg:'login'
     })
 }
 
-const renew = (req, res) => {
+const renew = (req, res = response) => {
     res.json({
         ok: true,
         msg:'renew'
