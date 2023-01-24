@@ -8,3 +8,7 @@ const createUser = (req, res) => {
         msg:'register'
     })
 }
+
+module.exports = {
+    createUser,
+}
