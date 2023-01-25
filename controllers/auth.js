@@ -7,7 +7,7 @@ const createUser = (req, res = response) => {
     const erros = validationResult(req);
     console.log(erros);
     if(!erros.isEmpty()){
-        return res.json({
+        return res.status(400).json({
             ok:false,
             erros:erros.mapped()
         })
