@@ -13,9 +13,12 @@ const createUser = (req, res = response) => {
 }
 
 const loginUser = (req, res = response) => {
+    const { mail, password} = req.body
     res.json({
         ok: true,
-        msg: 'login'
+        msg: 'login',
+        mail,
+        password,
     })
 }
 
