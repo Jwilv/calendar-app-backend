@@ -6,6 +6,12 @@ const createUser = (req, res = response) => {
     const {name, mail, password} = req.body
     const erros = validationResult(req);
     console.log(erros);
+    if(!erros.isEmpty()){
+        return res.json({
+            ok:false,
+            erros:erros.mapped()
+        })
+    }
     res.status(201).json({
         ok: true,
         msg: 'register',
