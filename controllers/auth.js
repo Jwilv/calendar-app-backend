@@ -2,9 +2,13 @@ const { response } = require("express")
 
 
 const createUser = (req, res = response) => {
+    const {name, mail, password} = req.body
     res.json({
         ok: true,
-        msg: 'register'
+        msg: 'register',
+        name,
+        mail,
+        password,
     })
 }
 
