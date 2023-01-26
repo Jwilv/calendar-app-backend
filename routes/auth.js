@@ -22,7 +22,10 @@ router.post(
     createUser);
 
 //ruta logeo de user (login)
-router.post('/', loginUser)
+router.post('/', [
+    check('email','el email debe es obligatorio').isEmail(),
+    check('password','password es obligatoria').isLength({min:6})
+] ,loginUser)
 
 //renoviacion de token de el user (renew)
 router.get('/renew', revalidateToken)
