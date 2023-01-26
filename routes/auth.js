@@ -15,7 +15,10 @@ const { check } = require('express-validator')
 //ruta creacion de user (register)
 router.post(
     '/new',
-    [check('name','no se obtuvo name').not().isEmpty()],
+    [check('name','no se obtuvo name').not().isEmpty(),
+    check('email','el email debe ser obligatorio').isEmail(),
+    check('password','la password debe ser de minimo 6 caracteres').isLength({min:6})
+    ],
     createUser);
 
 //ruta logeo de user (login)
