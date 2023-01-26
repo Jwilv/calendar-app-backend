@@ -22,6 +22,12 @@ const createUser = (req, res = response) => {
 }
 
 const loginUser = (req, res = response) => {
+    if (!erros.isEmpty()) {
+        return res.status(400).json({
+            ok: false,
+            erros: erros.mapped()
+        })
+    }
     const { mail, password } = req.body
     res.json({
         ok: true,
