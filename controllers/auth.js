@@ -38,7 +38,7 @@ const createUser = async (req, res = response) => {
     }
 }
 
-const loginUser = (req, res = response) => {
+const loginUser = async(req, res = response) => {
     try {
         const { email, password } = req.body
         //confirmar password
