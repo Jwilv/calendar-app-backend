@@ -41,6 +41,7 @@ const createUser = async (req, res = response) => {
 const loginUser = (req, res = response) => {
     try {
         const { email, password } = req.body
+        //confirmar password
         let user = User.findOne({email})
         if(user){
             return res.status(400).json({
@@ -48,6 +49,7 @@ const loginUser = (req, res = response) => {
                 msg:'el correo electronico seleccionado ya esta en uso'
             })
         }
+        //confirmar email
     res.json({
         ok: true,
         msg: 'login',
