@@ -42,7 +42,7 @@ const loginUser = async(req, res = response) => {
     try {
         const { email, password } = req.body
         //confirmar password
-        let user = User.findOne({email})
+        let user = await User.findOne({email})
         if(user){
             return res.status(400).json({
                 ok:false,
