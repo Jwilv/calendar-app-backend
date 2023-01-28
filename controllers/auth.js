@@ -4,10 +4,19 @@ const User = require('../models/User')
 
 const createUser = async (req, res = response) => {
     try {
-        //const { name, mail, password } = req.body
-        const user = new User(req.body);
+        const { name, email, password } = req.body
 
-        await user.save();
+    let user = await User.findOne({email});
+
+    if (user){
+        return res.status(400).json({
+            ok:false,
+            msg:'un user ya existe con ese correo'
+        })
+    }
+        // const user = new User(req.body);
+
+        // await user.save();
 
         res.status(201).json({
             ok: true,
