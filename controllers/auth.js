@@ -39,13 +39,29 @@ const createUser = async (req, res = response) => {
 }
 
 const loginUser = (req, res = response) => {
-    const { mail, password } = req.body
+    try {
+        const { email, password } = req.body
+        let user = User.findOne({email})
+        if(user){
+            return res.status(400).json({
+                ok:false,
+                msg:'el correo electronico seleccionado ya esta en uso'
+            })
+        }
     res.json({
         ok: true,
         msg: 'login',
         mail,
         password,
     })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'comuniquese con un administrador',
+        })
+    }
+    
 }
 
 const revalidateToken = (req, res = response) => {
