@@ -60,8 +60,8 @@ const loginUser = async(req, res = response) => {
     res.json({
         ok: true,
         msg: 'login',
-        mail,
-        password,
+        uid:user.id,
+        name:user.name,
     })
     } catch (error) {
         console.log(error);
