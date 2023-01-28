@@ -50,6 +50,13 @@ const loginUser = (req, res = response) => {
             })
         }
         //confirmar email
+        const validPassword = bcrypt.compareSync(password,User.password)
+        if(!validPassword){
+            res.status(400).json({
+                ok:false,
+                msg:'password incorrecto'
+            })
+        }
     res.json({
         ok: true,
         msg: 'login',
