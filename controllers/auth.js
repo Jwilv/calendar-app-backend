@@ -41,16 +41,16 @@ const createUser = async (req, res = response) => {
 const loginUser = async(req, res = response) => {
     try {
         const { email, password } = req.body
-        //confirmar password
+        //confirmar email
         let user = await User.findOne({email})
-        if(user){
+        if(!user){
             return res.status(400).json({
                 ok:false,
-                msg:'el correo electronico seleccionado ya esta en uso'
+                msg:'el correo electronico seleccionado es incorrecto'
             })
         }
-        //confirmar email
-        const validPassword = bcrypt.compareSync(password,User.password)
+        //confirmar password
+        const validPassword = await bcrypt.compareSync(password,user.password)
         if(!validPassword){
             res.status(400).json({
                 ok:false,
