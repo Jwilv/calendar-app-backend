@@ -14,9 +14,9 @@ const createUser = async (req, res = response) => {
             msg:'un user ya existe con ese correo'
         })
     }
-        // const user = new User(req.body);
+        user = new User(req.body);
 
-        // await user.save();
+        await user.save();
 
         res.status(201).json({
             ok: true,
