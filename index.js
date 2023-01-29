@@ -23,6 +23,7 @@ app.use(express.json())
 //auth : crear, login, renew
 app.use('/api/auth', require('./routes/auth'));
 //CRUD:eventos
+app.use('/api/events', require('./routes/events'));
 
 //escuchar peticiones
 // se obtiene el proceso de env y apuntamos/obtenemos el puerto 
