@@ -2,27 +2,31 @@ const { response } = require('express')
 const Event = require('../models/Event')
 
 
-const getEvents = (req, res = response) => {
+const getEvents = async (req, res = response) => {
+    // esto es para ver solo los eventos del usuario activo
+    // const evenst = await Event.find({user:req.uid}).populate('user','name')
+    const evenst = await Event.find().populate('user','name')
     res.status(200).json({
         ok: true,
-        msg: 'get event'
+        msg: 'get event',
+        evenst
     })
 }
 
-const newEvent = async(req, res = response) => {
+const newEvent = async (req, res = response) => {
     const event = new Event(req.body)
     try {
         event.user = req.uid;
-        const savedEvent = await  event.save();
+        const savedEvent = await event.save();
         res.json({
-            ok:true,
-            event : savedEvent,
+            ok: true,
+            event: savedEvent,
         })
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            ok:false,
-            msg:'comuniquese con un administrador'
+            ok: false,
+            msg: 'comuniquese con un administrador'
         })
     }
 }
