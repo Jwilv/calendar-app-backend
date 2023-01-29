@@ -18,14 +18,15 @@ const createUser = async (req, res = response) => {
     }
         user = new User(req.body);
         
-        //generar jwt
-        const token = generateJwt(user.id,user.name)
 
         //encriptar contraseña
         const salt = bcrypt.genSaltSync();
         user.password = bcrypt.hashSync(password, salt)
 
         await user.save();
+
+                //generar jwt
+                const token = generateJwt(user.id,user.name)
 
         res.status(201).json({
             ok: true,
