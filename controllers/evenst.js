@@ -31,10 +31,10 @@ const newEvent = async (req, res = response) => {
     }
 }
 
-const modifyEvent = (req, res = response) => {
+const modifyEvent = async(req, res = response) => {
     const eventId = req.params.id
     try {
-        
+        const event = await Event.findById(eventId)
     } catch (error) {
         console.log(error);
         res.status(200).json({
