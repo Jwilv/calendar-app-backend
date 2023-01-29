@@ -33,6 +33,15 @@ const newEvent = async (req, res = response) => {
 
 const modifyEvent = (req, res = response) => {
     const eventId = req.params.id
+    try {
+        
+    } catch (error) {
+        console.log(error);
+        res.status(200).json({
+            ok: true,
+            msg: 'hable con un administrador',
+        })
+    }
     res.status(200).json({
         ok: true,
         msg: 'modifyEvent',
