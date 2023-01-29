@@ -12,6 +12,7 @@ const {
 } = require('../controllers/auth')
 const { validateFields } = require('../middlewares/validate-fields');
 const { check } = require('express-validator')
+const {validatejwt} = require('../middlewares/validate-jwt')
 
 //ruta creacion de user (register)
 router.post(
@@ -31,7 +32,7 @@ router.post('/', [
 ] ,loginUser)
 
 //renoviacion de token de el user (renew)
-router.get('/renew', revalidateToken)
+router.get('/renew',validatejwt, revalidateToken)
 
 module.exports = router;
 
