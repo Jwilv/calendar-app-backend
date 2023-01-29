@@ -22,8 +22,18 @@ router.post('/',[
     validateFields
 ], newEvent)
 //modificar evento
-router.put('/:id', modifyEvent)
+router.put('/:id',[
+    check('title','title  es requerido').notEmpty(),
+    check('start','la fecha de inicio es requerida').custom(isDate),
+    check('end','la fecha de finalizacion es requerida').custom(isDate),
+    validateFields
+], modifyEvent)
 //eliminar evento
-router.delete('/:id', deleteEvent)
+router.delete('/:id',[
+    check('title','title  es requerido').notEmpty(),
+    check('start','la fecha de inicio es requerida').custom(isDate),
+    check('end','la fecha de finalizacion es requerida').custom(isDate),
+    validateFields
+], deleteEvent)
 
 module.exports = router;
