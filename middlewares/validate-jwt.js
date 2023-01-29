@@ -10,6 +10,18 @@ if(!token){
         msg:'no hay token en la peticion'
     })
 }
+
+
+try {
+    
+} catch (error) {
+    return res.status().json({
+        ok:false,
+        msg:'token no valido'
+    })
+}
+
+
 next();
 
 }
