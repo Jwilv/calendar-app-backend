@@ -37,7 +37,7 @@ const modifyEvent = async(req, res = response) => {
         const event = await Event.findById(eventId)
     } catch (error) {
         console.log(error);
-        res.status(200).json({
+        res.status(500).json({
             ok: true,
             msg: 'hable con un administrador',
         })
