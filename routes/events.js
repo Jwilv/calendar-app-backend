@@ -11,6 +11,6 @@ router.get('/', getEvents)
 //crear evento
 router.post('/',newEvent)
 //modificar evento
-router.put('/:id',newEvent)
+router.put('/:id',modifyEvent)
 //eliminar evento
-router.delete('/:id',newEvent)
+router.delete('/:id',deleteEvent)
