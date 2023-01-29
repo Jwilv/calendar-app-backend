@@ -1,4 +1,5 @@
 const {response} = require('express')
+const jwt = require('jsonwebtoken')
 
 
 const validateJwt = (req, res = response, next)=>{
@@ -13,7 +14,11 @@ if(!token){
 
 
 try {
-    
+    const payload = jwt.verify(
+        token,
+        process.env.SECRET_JWT_SEED,
+    )
+    console.log(payload)
 } catch (error) {
     return res.status().json({
         ok:false,
