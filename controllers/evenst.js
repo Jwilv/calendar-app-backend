@@ -48,11 +48,6 @@ const modifyEvent = async(req, res = response) => {
             msg: 'hable con un administrador',
         })
     }
-    res.status(200).json({
-        ok: true,
-        msg: 'modifyEvent',
-        eventId
-    })
 }
 
 const deleteEvent = (req, res = response) => {
