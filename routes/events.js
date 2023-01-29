@@ -4,6 +4,8 @@ hots + /api/events
 */
 
 const { Router } = require('express');
+const {check} = require('express-validator')
+const {validateFields} = require('../middlewares/validate-fields')
 const router = Router();
 const { validateJwt } = require('../middlewares/validate-jwt')
 const { getEvents, newEvent, modifyEvent, deleteEvent } = require('../controllers/evenst')
@@ -12,7 +14,11 @@ router.use(validateJwt);
 //obtener eventos
 router.get('/', getEvents)
 //crear evento
-router.post('/', newEvent)
+router.post('/',[
+    check('title','title  es requerido').notEmpty(),
+    check('start','la fecha de inicio es requerida').custom(),
+    validateFields
+], newEvent)
 //modificar evento
 router.put('/:id', modifyEvent)
 //eliminar evento

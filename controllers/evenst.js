@@ -9,6 +9,7 @@ const getEvents = (req, res = response) => {
 }
 
 const newEvent = (req, res = response) => {
+    console.log(req.body)
     res.status(200).json({
         ok: true,
         msg: 'newEvent'
