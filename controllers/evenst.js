@@ -32,9 +32,11 @@ const newEvent = async (req, res = response) => {
 }
 
 const modifyEvent = (req, res = response) => {
+    const eventId = req.params.id
     res.status(200).json({
         ok: true,
-        msg: 'modifyEvent'
+        msg: 'modifyEvent',
+        eventId
     })
 }
 
