@@ -63,11 +63,14 @@ const loginUser = async(req, res = response) => {
                 msg:'password incorrecto'
             })
         }
+    //generar jwt
+    const token = generateJwt(user.id,user.name)
     res.json({
         ok: true,
         msg: 'login',
         uid:user.id,
         name:user.name,
+        token,
     })
     } catch (error) {
         console.log(error);
