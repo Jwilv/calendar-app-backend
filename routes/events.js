@@ -18,6 +18,7 @@ router.get('/', getEvents)
 router.post('/',[
     check('title','title  es requerido').notEmpty(),
     check('start','la fecha de inicio es requerida').custom(isDate),
+    check('end','la fecha de finalizacion es requerida').custom(isDate),
     validateFields
 ], newEvent)
 //modificar evento
