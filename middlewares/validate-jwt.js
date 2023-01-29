@@ -14,11 +14,12 @@ if(!token){
 
 
 try {
-    const payload = jwt.verify(
+    const {uid, name} = jwt.verify(
         token,
         process.env.SECRET_JWT_SEED,
     )
-    console.log(payload)
+    req.uid = uid;
+    req.name = name;
 } catch (error) {
     return res.status().json({
         ok:false,
