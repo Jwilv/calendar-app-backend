@@ -35,6 +35,12 @@ const modifyEvent = async(req, res = response) => {
     const eventId = req.params.id
     try {
         const event = await Event.findById(eventId)
+        if(!event){
+            res.status(404).json({
+                ok:false,
+                msg:"ningun evento con ese Id"
+            })
+        }
     } catch (error) {
         console.log(error);
         res.status(500).json({
