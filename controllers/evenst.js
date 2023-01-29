@@ -18,13 +18,13 @@ const newEvent = async (req, res = response) => {
     try {
         event.user = req.uid;
         const savedEvent = await event.save();
-        res.json({
+        return res.json({
             ok: true,
             event: savedEvent,
         })
     } catch (error) {
         console.log(error);
-        res.status(500).json({
+        return res.status(500).json({
             ok: false,
             msg: 'comuniquese con un administrador'
         })
@@ -36,14 +36,20 @@ const modifyEvent = async(req, res = response) => {
     try {
         const event = await Event.findById(eventId)
         if(!event){
-            res.status(404).json({
+            return res.status(404).json({
                 ok:false,
                 msg:"ningun evento con ese Id"
             })
         }
+        if(event.user.toString() !== uid){
+            return res.status(401).json({
+                ok:false,
+                msg:'no tiene privilegio de editar este evento'
+            })
+        }
     } catch (error) {
         console.log(error);
-        res.status(500).json({
+        return res.status(500).json({
             ok: true,
             msg: 'hable con un administrador',
         })
