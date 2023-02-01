@@ -5,11 +5,11 @@ const Event = require('../models/Event')
 const getEvents = async (req, res = response) => {
     // esto es para ver solo los eventos del usuario activo
     // const evenst = await Event.find({user:req.uid}).populate('user','name')
-    const evenst = await Event.find().populate('user', 'name')
+    const events = await Event.find().populate('user', 'name')
     res.status(200).json({
         ok: true,
         msg: 'get event',
-        evenst
+        events
     })
 }
 
